@@ -35,6 +35,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::post('profile/create', 'Admin\ProfileController@create');
 });
+
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::post('profile/edit', 'Admin\ProfileController@update');
 });

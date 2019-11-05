@@ -28,3 +28,4 @@ public function boot()
         \URL::forceScheme('https');
     }
 }
+}
