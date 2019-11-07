@@ -39,7 +39,7 @@ class ProfileController extends Controller
       $news->fill($form);
       $news->save();
 
-      return redirect('admin/news/create');
+      return redirect('admin/profile/create');
   }
 
  public function edit()
