@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use App\Profile;
+
 class ProfileController extends Controller
 {
     //
@@ -17,17 +19,17 @@ class ProfileController extends Controller
 
       // 以下を追記
       // Varidationを行う
-      $this->validate($request, News::$rules);
+      $this->validate($request, Profile::$rules);
 
-      $news = new News;
+      $Profile = new Profile;
       $form = $request->all();
 
-      // フォームから画像が送信されてきたら、保存して、$news->image_path に画像のパスを保存する
+      // フォームから画像が送信されてきたら、保存して、$Profile->image_path に画像のパスを保存する
       if (isset($form['image'])) {
         $path = $request->file('image')->store('public/image');
-        $news->image_path = basename($path);
+        $Profile->image_path = basename($path);
       } else {
-          $news->image_path = null;
+          $Profile->image_path = null;
       }
 
       // フォームから送信されてきた_tokenを削除する
@@ -36,8 +38,8 @@ class ProfileController extends Controller
       unset($form['image']);
 
       // データベースに保存する
-      $news->fill($form);
-      $news->save();
+      $Profile->fill($form);
+      $Profile->save();
 
       return redirect('admin/profile/create');
   }

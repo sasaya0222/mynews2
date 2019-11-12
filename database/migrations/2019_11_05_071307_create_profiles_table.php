@@ -18,7 +18,7 @@ class CreateProfilesTable extends Migration
             $table->string('name'); // ニュースのタイトルを保存するカラム
             $table->string('gender');  // ニュースの本文を保存するカラム
             $table->string('hobby');// 画像のパスを保存するカラム
-        　　$table->string('introduction'); 
+            $table->string('introduction');
             $table->timestamps();
         });
     }
